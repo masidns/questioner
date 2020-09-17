@@ -1,33 +1,48 @@
-<div class="row">
-    <div class="col-md-12">
-        <div class="box">
-            <div class="box-header">
-                <h3 class="box-title">Grup Kuisioner Listing</h3>
-            	<div class="box-tools">
-                    <a href="<?php echo site_url('grup_kuisioner/add'); ?>" class="btn btn-success btn-sm">Add</a> 
+<div class="col-md-12" ng-app="apps" ng-controller="GroupController">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Form Input</h4>
+                </div>
+                <div class="card-body">
+                    <form ng-submit="simpan()">
+                        <div class="form-group">
+                            <label for="" class="col-form-label-sm">Kode Group</label>
+                            <input type="text" class="form-control form-control-sm" ng-model="model.kode" placeholder="" required>
+                        </div>
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-primary">{{tombol}}</button>
+                            <button type="button" class="btn btn-warning" ng-click="clear()">Clear</button>
+                        </div>
+                    </form>
                 </div>
             </div>
-            <div class="box-body">
-                <table class="table table-striped">
-                    <tr>
-						<th>Id Grup</th>
-						<th>Id Kuisioner</th>
-						<th>Id Layanan</th>
-						<th>Actions</th>
-                    </tr>
-                    <?php foreach($grup_kuisioner as $g){ ?>
-                    <tr>
-						<td><?php echo $g['id_grup']; ?></td>
-						<td><?php echo $g['id_kuisioner']; ?></td>
-						<td><?php echo $g['id_layanan']; ?></td>
-						<td>
-                            <a href="<?php echo site_url('grup_kuisioner/edit/'.$g['id_grup']); ?>" class="btn btn-info btn-xs"><span class="fa fa-pencil"></span> Edit</a> 
-                            <a href="<?php echo site_url('grup_kuisioner/remove/'.$g['id_grup']); ?>" class="btn btn-danger btn-xs"><span class="fa fa-trash"></span> Delete</a>
-                        </td>
-                    </tr>
-                    <?php } ?>
-                </table>
-                                
+        </div>
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="box-title">Data Group</h4>
+                </div>
+                <div class="card-body">
+                    <table class="table table-sm table-striped">
+                        <tr>
+                            <th>No</th>
+                            <th>Kode</th>
+                            <th>Status</th>
+                            <th width="20%">Actions</th>
+                        </tr>
+                        <tr ng-repeat="item in datas">
+                            <td>{{$index+1}}</td>
+                            <td>{{item.kode}}</td>
+                            <td>{{item.status==1 ? 'Aktif':'Tidak Aktif'}}</td>
+                            <td>
+                                <a href="" class="btn btn-info btn-xs" ng-click ="edit(item)"><span class="fa fa-pencil"></span> Edit</a>
+                                <a href="" class="btn btn-primary btn-xs" ng-click="detail(item)"><span class="fa fa-eye"></span> detail</a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
             </div>
         </div>
     </div>

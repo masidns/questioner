@@ -13,7 +13,7 @@
                         </div>
                         <div class="form-group">
                             <label for="">Descripsi</label>
-                            <input type="text" class="form-control form-control-sm" ng-model="model.deskripsi" placeholder="" required>
+                            <textarea class="form-control form-control-sm" ng-model="model.deskripsi" rows="3" required></textarea>
                         </div>
                         <div class="card-footer">
                             <button type="submit" class="btn btn-primary">{{tombol}}</button>
@@ -34,18 +34,18 @@
                             <th>No</th>
                             <th>Nama Aspek</th>
                             <th>Deskripsi</th>
-                            <th>Actions</th>
+                            <th width="10%">Actions</th>
                         </tr>
                         <tr ng-repeat="item in datas">
                             <td>{{$index+1}}</td>
                             <td>{{item.nm_aspek}}</td>
                             <td>{{item.deskripsi}}</td>
                             <td>
-                                <a href="" class="btn btn-info btn-xs" ng-click ="edit(item)"><span class="fa fa-pencil"></span> Edit</a> 
-                                <a href="" class="btn btn-danger btn-xs" ng-click="hapus(item)"><span class="fa fa-trash"></span> Delete</a>
+                                <a href="" class="btn btn-info btn-xs" ng-click ="edit(item)"><span class="fa fa-pencil"></span> Edit</a>
+                                <!-- <a href="" class="btn btn-danger btn-xs" ng-click="hapus(item)"><span class="fa fa-trash"></span> Delete</a> -->
                             </td>
                         </tr>
-                    </table> 
+                    </table>
                 </div>
             </div>
         </div>

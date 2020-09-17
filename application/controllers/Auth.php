@@ -4,12 +4,12 @@
  * www.crudigniter.com
  */
 
-class Aspek_penilaian extends CI_Controller
+class Auth extends CI_Controller
 {
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('Aspek_penilaian_model');
+        $this->load->library('mylib');
     }
 
     /*
@@ -18,19 +18,20 @@ class Aspek_penilaian extends CI_Controller
     public function index()
     {
         // $data['aspek_penilaian'] = $this->Aspek_penilaian_model->get_all_aspek_penilaian();
-        $data['title'] = ['title' => 'Aspek Penilaian'];
-        $data['_view'] = 'aspek_penilaian/index';
-        $this->load->view('layouts/main', $data);
+        $data['title'] = ['title' => 'Login'];
+        $this->load->view('auth/login', $data);
     }
 
     /*
      * Adding a new aspek_penilaian
      */
 
-    public function getdata()
+    public function login()
     {
-        $data = $this->Aspek_penilaian_model->get_all_aspek_penilaian();
-        echo json_encode($data);
+        $result = $this->mylib->restlogin($this->input->post('username'), $this->input->post('password'));
+        $result['isLogin'] = true;
+        $this->session->set_userdata($result);
+        redirect('dashboard/index');
     }
 
     public function add()
