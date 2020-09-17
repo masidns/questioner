@@ -569,6 +569,29 @@ function GroupService($q, $http, helperServices) {
         return def.promise;
     };
 
+    service.postitem = function(param) {
+        var def = $q.defer();
+        var id = helperServices.absUrl.split('/');
+			param.idsetgroup = id[id.length - 1];
+        $http({
+            method: 'Post',
+            url: url + "save",
+            data: param
+        }).then(
+            (response) => {
+                def.resolve(response.data);
+            },
+            (err) => {
+                swal('Warning', err.data, 'error');
+                def.reject(err);
+            }
+        );
+
+        return def.promise;
+    };
+
+
+
     service.put = function(param) {
         var def = $q.defer();
         $http({

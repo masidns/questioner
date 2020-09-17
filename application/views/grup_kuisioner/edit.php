@@ -6,11 +6,11 @@
           <ul class="nav nav-tabs" id="custom-tabs-five-tab" role="tablist">
             <li class="nav-item" ng-repeat="layanan in datas.layanan">
               <a ng-class="{'nav-link active': $index==0, 'nav-link': $index !==0}" id="custom-tabs-five-overlay-tab"
-                data-toggle="pill" href="#custom-tabs-five-overlay{{layanan.id_layanan}}" role="tab"
+                data-toggle="pill" href="" data-target="#custom-tabs-five-overlay{{layanan.id_layanan}}" role="tab"
                 aria-controls="custom-tabs-five-overlay" aria-selected="true" ng-click="showData(layanan)">{{layanan.nama_layanan}}</a>
             </li>
           </ul>
-          <button class="btn btn-default btn-sm"><i class="fa fa-save"></i> Simpan</button>
+          <!-- <button class="btn btn-default btn-sm"><i class="fa fa-save"></i> Simpan</button> -->
         </div>
       </div>
       <div class="card-body">
@@ -52,7 +52,7 @@
                           <tr ng-repeat="itempertanyaan in itemaspek.itemaspek">
                             <td>
                               <div class="form-check">
-                                <input type="checkbox" class="form-check-input" ng-model="itempertanyaan.checked" ng-change="" id="exampleCheck1">
+                                <input type="checkbox" class="form-check-input" ng-model="itempertanyaan.checked" ng-change="model.id_layanan=layanan.id_layanan; model.id_kuisioner=itempertanyaan.id_kuisioner; model.checked=itempertanyaan.checked; simpan()" id="exampleCheck1">
                                 <label class="form-check-label" for="exampleCheck1"></label>
                               </div>
                             </td>

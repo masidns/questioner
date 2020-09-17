@@ -387,12 +387,11 @@ function GroupDetailController($scope, GroupService, helperServices) {
             var data = angular.copy($scope.datas.aspek);
             data.forEach(aspek => {
                 aspek.itemaspek.forEach(itemaspek => {
+                    itemaspek.checked = false;
                     grouplayanan.forEach(group => {
                         if(itemaspek.id_kuisioner == group.id_kuisioner)
                         {
                             itemaspek.checked = true;
-                        }else{
-                            itemaspek.checked = false;
                         }
                     });                    
                 });
@@ -404,12 +403,11 @@ function GroupDetailController($scope, GroupService, helperServices) {
             var data = angular.copy($scope.datas.aspek);
             data.forEach(aspek => {
                 aspek.itemaspek.forEach(itemaspek => {
+                    itemaspek.checked = false;
                     grouplayanan.forEach(group => {
                         if(itemaspek.id_kuisioner == group.id_kuisioner)
                         {
                             itemaspek.checked = true;
-                        }else{
-                            itemaspek.checked = false;
                         }
                     });                    
                 });
@@ -418,29 +416,11 @@ function GroupDetailController($scope, GroupService, helperServices) {
         }
     }
     $scope.simpan = (item) => {
-        swal({
-            title: "Information !!!",
-            text: "Anda yakin?",
-            icon: "info",
-            buttons: true,
-            dangerMode: false,
+        GroupService.postitem($scope.model).then(x => {
+            // swal('Information!!', 'Data Berhasil di Tambah', 'success');
+            $scope.model = {};
+            $scope.formSimpan = true;
         })
-            .then((value) => {
-                if ($scope.model.idsetgroup) {
-                    GroupService.put($scope.model).then(x => {
-                        swal('Information!!', 'Data Berhasil di Tambah', 'success');
-                        $scope.model = {};
-                        $scope.formSimpan = false;
-                    })
-                } else {
-                    GroupService.post($scope.model).then(x => {
-                        swal('Information!!', 'Data Berhasil di Tambah', 'success');
-                        $scope.model = {};
-                        $scope.formSimpan = true;
-                    })
-                }
-
-            });
     }
     $scope.edit = (item) => {
         $scope.model = angular.copy(item);

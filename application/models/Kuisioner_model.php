@@ -64,7 +64,7 @@ class Kuisioner_model extends CI_Model
      */
     public function update_kuisioner($params)
     {
-        $this->db->where('id_kuisioner', $id_kuisioner);
+        $this->db->where('id_kuisioner', $params['id_kuisioner']);
         $result = $this->db->update('kuisioner', ["pertanyaan" => $params['pertanyaan']]);
         return $result;
     }

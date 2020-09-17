@@ -48,6 +48,21 @@ class Group_model extends CI_Model
         }
     }
 
+    public function saveItem($data)
+    {
+        $item = [
+            'id_kuisioner' => $data['id_kuisioner'],
+            'id_layanan' => $data['id_layanan'],
+            'idsetgroup' => $data['idsetgroup'],
+        ];
+        if ($data['checked']) {
+            $this->db->insert('grup_kuisioner', $item);
+            return $this->db->insert_id();
+        } else {
+            return $this->db->delete('grup_kuisioner', $item);
+        }
+    }
+
     public function edit($data)
     {
         $this->db->where('idsetgroup', $data['idsetgroup']);

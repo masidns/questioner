@@ -47,6 +47,13 @@ class Group extends CI_Controller
         echo json_decode($result);
     }
 
+    public function save()
+    {
+        $data = json_decode($this->security->xss_clean($this->input->raw_input_stream), true);
+        $result = $this->Group_model->saveItem($data);
+        echo json_decode($result);
+    }
+
     public function edit()
     {
         // check if the aspek_penilaian exists before trying to edit it
