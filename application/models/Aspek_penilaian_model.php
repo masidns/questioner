@@ -34,16 +34,22 @@ class Aspek_penilaian_model extends CI_Model
     function add_aspek_penilaian($params)
     {
         $this->db->insert('aspek_penilaian',$params);
-        return $this->db->insert_id();
+        $params['id_aspek']=$this->db->insert_id();
+        return $params;
     }
     
     /*
      * function to update aspek_penilaian
      */
-    function update_aspek_penilaian($id_aspek,$params)
+    function update_aspek_penilaian($params)
     {
-        $this->db->where('id_aspek',$id_aspek);
-        return $this->db->update('aspek_penilaian',$params);
+        $item = [
+            'nm_aspek'=>$params['nm_aspek'],
+            'deskripsi'=>$params['deskripsi']
+        ];
+        $this->db->where('id_aspek',$params['id_aspek']);
+        $this->db->update('aspek_penilaian',$item);
+        return $params;
     }
     
     /*

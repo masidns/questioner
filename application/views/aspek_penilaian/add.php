@@ -8,7 +8,7 @@
           	<div class="box-body">
           		<div class="row clearfix">
 					<div class="col-md-6">
-						<label for="nm_aspek" class="control-label">Nm Aspek</label>
+						<label for="nm_aspek" class="control-label">Nama Aspek</label>
 						<div class="form-group">
 							<input type="text" name="nm_aspek" value="<?php echo $this->input->post('nm_aspek'); ?>" class="form-control" id="nm_aspek" />
 						</div>
