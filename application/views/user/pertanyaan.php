@@ -1,4 +1,4 @@
-<div ng-app="apps" ng-controller="GroupDetailController">
+<div ng-app="apps" ng-controller="PertanyaanController">
 <div class="container-fluid" id="grad1">
     <div>
         <div>
@@ -9,23 +9,25 @@
                         <form id="msform">
                             <!-- progressbar -->
                             <ul id="progressbar">
-                                <li class="active" id="account"><strong>KAMPUS</strong></li>
-                                <li id="personal"><strong>PENGELOLA</strong></li>
+<li id="account" ng-repeat="item in datas.layanan" ng-class="{'active':$index==0}" style="content:{{$index+1}}"><strong>{{item.nama_layanan}}</strong></li>
+                                <!-- <li id="personal"><strong>PENGELOLA</strong></li>
                                 <li id="payment"><strong>DOSEN</strong></li>
-                                <li id="confirm"><strong>STAFF</strong></li>
+                                <li id="confirm"><strong>STAFF</strong></li> -->
                             </ul>
                             <!-- fieldsets -->
-                            <fieldset>
+                            <fieldset ng-repeat="item in datas.aspek">
                                 <div class="form-card">
-                                    <h2 class="fs-title">Account Information</h2> <input type="email" name="email" placeholder="Email Id" /> <input type="text" name="uname" placeholder="UserName" /> <input type="password" name="pwd" placeholder="Password" /> <input type="password"
-                                        name="cpwd" placeholder="Confirm Password" />
-                                </div> <input type="button" name="next" class="next action-button" value="Next Step" />
+                                </div> 
+                                <input type="button" name="previous" class="previous action-button-previous" value="Previous" /> 
+                                <input type="button" name="next" class="next action-button" value="Next Step" />
                             </fieldset>
-                            <fieldset>
+                            <!-- <fieldset>
                                 <div class="form-card">
                                     <h2 class="fs-title">Personal Information</h2> <input type="text" name="fname" placeholder="First Name" /> <input type="text" name="lname" placeholder="Last Name" /> <input type="text" name="phno" placeholder="Contact No." /> <input type="text"
                                         name="phno_2" placeholder="Alternate Contact No." />
-                                </div> <input type="button" name="previous" class="previous action-button-previous" value="Previous" /> <input type="button" name="next" class="next action-button" value="Next Step" />
+                                </div> 
+                                <input type="button" name="previous" class="previous action-button-previous" value="Previous" /> 
+                                <input type="button" name="next" class="next action-button" value="Next Step" />
                             </fieldset>
                             <fieldset>
                                 <div class="form-card">
@@ -72,7 +74,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </fieldset>
+                            </fieldset> -->
                         </form>
                     </div>
                 </div>

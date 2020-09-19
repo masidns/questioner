@@ -11,6 +11,8 @@ class Pertanyaan extends CI_Controller
     {
         parent::__construct();
         $this->load->library('mylib');
+        $this->load->model('Pertanyaan_model');
+        
         if (!$this->session->userdata('isLogin')) {
             redirect('auth/index');
         }
@@ -33,7 +35,8 @@ class Pertanyaan extends CI_Controller
 
     public function getdata()
     {
-
+        $result = $this->Pertanyaan_model->getdetail();
+        echo json_encode($result);
     }
 
     public function add()

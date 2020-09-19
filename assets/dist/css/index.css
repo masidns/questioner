@@ -159,7 +159,7 @@ select.list-dt:focus {
 #progressbar #account:before {
     font-family: Arial, Helvetica, sans-serif;
     color: #ffffff;
-    content: "1"
+    content: "";
 }
 
 #progressbar #personal:before {

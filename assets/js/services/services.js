@@ -527,13 +527,13 @@ function GroupService($q, $http, helperServices) {
     service.getdetail = function() {
         var def = $q.defer();
         var id = helperServices.absUrl.split('/');
-			id = id[id.length - 1];
+        id = id[id.length - 1];
         if (service.instance) {
             def.resolve(service.Items);
         } else {
             $http({
                 method: 'Get',
-                url: url + 'detaildetail/'+id
+                url: url + 'detaildetail/' + id
             }).then(
                 (response) => {
                     service.instance = true;
@@ -573,7 +573,7 @@ function GroupService($q, $http, helperServices) {
     service.postitem = function(param) {
         var def = $q.defer();
         var id = helperServices.absUrl.split('/');
-			param.idsetgroup = id[id.length - 1];
+        param.idsetgroup = id[id.length - 1];
         $http({
             method: 'Post',
             url: url + "save",
@@ -641,7 +641,7 @@ function GroupService($q, $http, helperServices) {
 }
 
 function PertanyaanService($q, $http, helperServices) {
-    var url = helperServices.url + '/group/';
+    var url = helperServices.url + '/user/pertanyaan/';
     var service = {
         Items: []
     };
@@ -673,13 +673,13 @@ function PertanyaanService($q, $http, helperServices) {
     service.getdetail = function() {
         var def = $q.defer();
         var id = helperServices.absUrl.split('/');
-			id = id[id.length - 1];
+        id = id[id.length - 1];
         if (service.instance) {
             def.resolve(service.Items);
         } else {
             $http({
                 method: 'Get',
-                url: url + 'detaildetail/'+id
+                url: url + 'detaildetail/' + id
             }).then(
                 (response) => {
                     service.instance = true;
@@ -719,7 +719,7 @@ function PertanyaanService($q, $http, helperServices) {
     service.postitem = function(param) {
         var def = $q.defer();
         var id = helperServices.absUrl.split('/');
-			param.idsetgroup = id[id.length - 1];
+        param.idsetgroup = id[id.length - 1];
         $http({
             method: 'Post',
             url: url + "save",
