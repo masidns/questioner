@@ -4,7 +4,8 @@ angular.module('admin.services', [])
     .factory('LayananService', LayananService)
     .factory('QuestionerService', QuestionerService)
     .factory('PeriodeService', PeriodeService)
-    .factory('GroupService', GroupService);
+    .factory('GroupService', GroupService)
+    .factory('PertanyaanService', PertanyaanService);
 
 function RangeNilaiService($q, $http, helperServices) {
     var url = helperServices.url + '/range_nilai/';
@@ -494,6 +495,152 @@ function PeriodeService($q, $http, helperServices) {
 }
 
 function GroupService($q, $http, helperServices) {
+    var url = helperServices.url + '/group/';
+    var service = {
+        Items: []
+    };
+
+    service.get = function() {
+        var def = $q.defer();
+        if (service.instance) {
+            def.resolve(service.Items);
+        } else {
+            $http({
+                method: 'Get',
+                url: url + 'getdata'
+            }).then(
+                (response) => {
+                    service.instance = true;
+                    service.Items = response.data;
+                    def.resolve(service.Items);
+                },
+                (err) => {
+                    swal('Warning', err.data, 'error');
+                    def.reject(err);
+                }
+            );
+        }
+
+        return def.promise;
+    };
+
+    service.getdetail = function() {
+        var def = $q.defer();
+        var id = helperServices.absUrl.split('/');
+			id = id[id.length - 1];
+        if (service.instance) {
+            def.resolve(service.Items);
+        } else {
+            $http({
+                method: 'Get',
+                url: url + 'detaildetail/'+id
+            }).then(
+                (response) => {
+                    service.instance = true;
+                    service.Items = response.data;
+                    def.resolve(service.Items);
+                },
+                (err) => {
+                    swal('Warning', err.data, 'error');
+                    def.reject(err);
+                }
+            );
+        }
+
+        return def.promise;
+    };
+
+    service.post = function(param) {
+        var def = $q.defer();
+        $http({
+            method: 'Post',
+            url: url + "add",
+            data: param
+        }).then(
+            (response) => {
+                service.Items = response.data;
+                def.resolve(service.Items);
+            },
+            (err) => {
+                swal('Warning', err.data, 'error');
+                def.reject(err);
+            }
+        );
+
+        return def.promise;
+    };
+
+    service.postitem = function(param) {
+        var def = $q.defer();
+        var id = helperServices.absUrl.split('/');
+			param.idsetgroup = id[id.length - 1];
+        $http({
+            method: 'Post',
+            url: url + "save",
+            data: param
+        }).then(
+            (response) => {
+                def.resolve(response.data);
+            },
+            (err) => {
+                swal('Warning', err.data, 'error');
+                def.reject(err);
+            }
+        );
+
+        return def.promise;
+    };
+
+
+
+    service.put = function(param) {
+        var def = $q.defer();
+        $http({
+            method: 'Put',
+            url: url + "edit",
+            data: param
+        }).then(
+            (response) => {
+                var data = service.Items.periode.find((x) => x.id_periode == param.periode);
+                if (data) {
+                    data.selesai = param.selesai;
+                }
+                def.resolve(response.data);
+            },
+            (err) => {
+                swal('Warning', err.data, 'error');
+                def.reject(err);
+            }
+        );
+        return def.promise;
+    };
+
+    service.delete = function(id) {
+        var def = $q.defer();
+        $http({
+            method: 'Delete',
+            url: url + '/remove/' + id
+        }).then(
+            (response) => {
+                var data = service.Items.find((x) => x.id_kuisioner == id);
+                if (data) {
+                    var index = service.Items.indexOf(data);
+                    service.Items.splice(index, 1);
+                    def.resolve(true);
+                }
+            },
+            (err) => {
+                swal('Warning', err.data, 'error');
+                def.reject(err);
+            }
+        );
+        return def.promise;
+    };
+
+    return service;
+}
+
+function PertanyaanService($q, $http, helperServices) {
     var url = helperServices.url + '/group/';
     var service = {
         Items: []
