@@ -34,22 +34,46 @@
                       <td>
                         {{itempertanyaan.pertanyaan}}
                       </td>
-                      <td>
-                        <div class="form-check form-check-inline d-flex justify-content-center">
+                      <td class="d-flex justify-content-center">
+                          <table>
+                              <tr>
+                                <!-- <div class="form-check form-check-inline d-flex justify-content-center"> -->
+                                  <td>
+                                    Kurang
+                                  </td>
+                                  <td>
+                                  <div class="form-check form-check-inline d-flex justify-content-center">
+                                    <div class="custom-control custom-radio" ng-repeat="range in datas.rangenilai">
+                                        <input class="custom-control-input" type="radio" id="customRadio{{itemaspek.id_aspek}}{{ range.id_range}}{{ itempertanyaan.id_kuisioner}}" name="nilai{{itemaspek.id_aspek}}{{ itempertanyaan.id_kuisioner}}" ng-model="itempertanyaan.nilai">
+                                        <label for="customRadio{{itemaspek.id_aspek}}{{ range.id_range}}{{ itempertanyaan.id_kuisioner}}" class="custom-control-label"> </label>
+                                    </div>
+                                    
+                                </div>
+                                  </td>
+                                  <td>
+                                    Baik
+                                  </td>
+                                <!-- </div> -->
+                              </tr>
+                          </table>
+                        <!-- <div class="form-check form-check-inline d-flex justify-content-center">
                           <div class="custom-control custom-radio">
-
                             <input class="custom-control-input" type="radio" id="customRadio1" name="customRadio">
-                            <label for="customRadio1" class="custom-control-label"></label>
+                            <label for="inlineRadio1" class="custom-control-label">kurang </label>
                           </div>
                           <div class="custom-control custom-radio">
                             <input class="custom-control-input" type="radio" id="customRadio2" name="customRadio">
-                            <label for="customRadio2" class="custom-control-label"></label>
+                            <label for="customRadio2" class="custom-control-label"> </label>
+                          </div>
+                          <div class="custom-control custom-radio">
+                            <input class="custom-control-input" type="radio" id="customRadio2" name="customRadio">
+                            <label for="customRadio2" class="custom-control-label"> </label>
                           </div>
                           <div class="custom-control custom-radio">
                             <input class="custom-control-input" type="radio" id="customRadio3" name="customRadio">
-                            <label for="customRadio3" class="custom-control-label"></label>
+                            <label for="customRadio3" class="custom-control-label">baik </label>
                           </div>
-                        </div>
+                        </div> -->
                       </td>
                     </tr>
                   </table>
