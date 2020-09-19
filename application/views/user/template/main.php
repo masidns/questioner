@@ -20,6 +20,7 @@
   <link rel="stylesheet" href="<?=base_url('assets/lib/form/css/smart_wizard_theme_dots.css')?>">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <link rel="stylesheet" href="<?=base_url('assets/dist/css/index.css')?>">
 </head>
 
 <body class="hold-transition sidebar-mini layout-navbar-fixed">
@@ -263,6 +264,7 @@ if (isset($_view) && $_view) {
   <!-- AdminLTE for demo purposes -->
   <script src="<?=base_url()?>assets/dist/js/demo.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="<?=base_url('assets/dist/js/tes.js')?>"></script>
   <script>
     // $("#smartwizard").on("showStep", function (e, anchorObject, stepNumber, stepDirection, stepPosition) {
     //   //alert("You are on step "+stepNumber+" now");
@@ -276,7 +278,7 @@ if (isset($_view) && $_view) {
     //   }
     // });
 
-    $('#smartwizard').smartWizard("theme", "arrows");
+    $('#smartwizard').smartWizard();
   </script>
 </body>
 
