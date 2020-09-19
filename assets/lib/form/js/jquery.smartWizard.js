@@ -24,12 +24,14 @@
         showStepURLhash: true, // Show url hash based on step
         lang: { // Language variables for button
             next: 'Next',
-            previous: 'Previous'
+            previous: 'Previous',
+            finish: 'Finish'
         },
         toolbarSettings: {
             toolbarPosition: 'bottom', // none, top, bottom, both
             toolbarButtonPosition: 'end', // start, end
             showNextButton: true, // show/hide a Next button
+            showFinishButton: true,
             showPreviousButton: true, // show/hide a Previous button
             toolbarExtraButtons: [] // Extra buttons to show on toolbar, array of jQuery input/buttons elements
         },
@@ -63,6 +65,9 @@
         // Step anchor elements
         this.steps = $("li > a", this.nav);
         // Content container
+        this.itempertanyaan = this.main.children('div');
+        this.pertanyaan = this.itempertanyaan.children('div');
+        // 
         this.container = this.main.children('div');
         // Content pages
         this.pages = this.container.children('div');
@@ -159,9 +164,10 @@
             }
 
             // Create the toolbar buttons
-            var btnNext = this.options.toolbarSettings.showNextButton !== false ? $('<button></button>').text(this.options.lang.next).addClass('btn btn-secondary sw-btn-next').attr('type', 'button') : null;
+            var btnNext = this.options.toolbarSettings.showNextButton !== false ? $('<button></button>').text(this.options.lang.next).addClass('btn btn-secondary sw-btn-next').attr('type', 'submit') : null;
+            var btnFinish = this.options.toolbarSettings.showFinishButton !== false ? $('<button></button>').text(this.options.lang.finish).addClass('btn btn-success sw-btn-finish').attr({'type': 'button', 'hidden':'true', 'ng-click': 'simpan()'}) : null;
             var btnPrevious = this.options.toolbarSettings.showPreviousButton !== false ? $('<button></button>').text(this.options.lang.previous).addClass('btn btn-secondary sw-btn-prev').attr('type', 'button') : null;
-            var btnGroup = $('<div></div>').addClass('btn-group mr-2 sw-btn-group').attr('role', 'group').append(btnPrevious, btnNext);
+            var btnGroup = $('<div></div>').addClass('btn-group mr-2 sw-btn-group').attr('role', 'group').append(btnPrevious, btnNext, btnFinish);
 
             // Add extra toolbar buttons
             var btnGroupExtra = null;
@@ -482,13 +488,20 @@
             if (!this.options.cycleSteps) {
                 if (0 >= idx) {
                     $('.sw-btn-prev', this.main).addClass("disabled");
+                    $('.sw-btn-finish', this.main).attr("hidden", "true");
+
                 } else {
                     $('.sw-btn-prev', this.main).removeClass("disabled");
+                    $('.sw-btn-finish', this.main).attr("hidden", "true");
                 }
                 if (this.steps.length - 1 <= idx) {
                     $('.sw-btn-next', this.main).addClass("disabled");
+                    $('.sw-btn-finish', this.main).removeAttr("hidden");
+                    $('.sw-tabdata', this.main).addClass("disabled");
                 } else {
                     $('.sw-btn-next', this.main).removeClass("disabled");
+                    $('.sw-btn-finish', this.main).attr("hidden", "true");
+
                 }
             }
             return true;

@@ -20,11 +20,15 @@ class Pertanyaan_model extends CI_Model
         foreach ($aspek as $key => $value) {
             $value->itemaspek = $this->db->get_where('kuisioner', ['id_aspek' => $value->id_aspek])->result();
         }
+
         $data = [
             'group' => $group,
             'layanan' => $this->Layanan_model->get_all_layanan(),
             'aspek' => $aspek,
             'rangenilai' => $this->db->get('range_nilai')->result(),
+            'periode' => $this->db->get('periode')->result(),
+            'penilai' => $this->session->userdata(),
+
         ];
         return $data;
     }

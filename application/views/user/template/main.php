@@ -18,9 +18,10 @@
   <link rel="stylesheet" href="<?=base_url('assets/lib/form/css/smart_wizard_theme_arrows.min.css')?>">
   <link rel="stylesheet" href="<?=base_url('assets/lib/form/css/smart_wizard_theme_circles.min.css')?>">
   <link rel="stylesheet" href="<?=base_url('assets/lib/form/css/smart_wizard_theme_dots.css')?>">
+  <link rel="stylesheet" href="<?=base_url('assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css')?>">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-  <link rel="stylesheet" href="<?=base_url('assets/dist/css/index.css')?>">
+  <link rel="stylesheet" href="<?=base_url('assets/dist/css/styleuser.css')?>">
 </head>
 
 <body class="hold-transition sidebar-mini layout-navbar-fixed">
@@ -258,7 +259,7 @@ if (isset($_view) && $_view) {
   <script src="<?=base_url('assets/js/services/helper.service.js')?>"></script>
   <!-- Bootstrap 4 -->
   <script src="<?=base_url()?>assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="<?=base_url('assets/lib/form/js/jquery.smartWizard.min.js')?>"></script>
+  <script src="<?=base_url('assets/lib/form/js/jquery.smartWizard.js')?>"></script>
   <!-- AdminLTE App -->
   <script src="<?=base_url()?>assets/dist/js/adminlte.min.js"></script>
   <!-- AdminLTE for demo purposes -->
