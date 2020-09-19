@@ -35,7 +35,21 @@
                         {{itempertanyaan.pertanyaan}}
                       </td>
                       <td>
+                        <div class="form-check form-check-inline d-flex justify-content-center">
+                          <div class="custom-control custom-radio">
 
+                            <input class="custom-control-input" type="radio" id="customRadio1" name="customRadio">
+                            <label for="customRadio1" class="custom-control-label"></label>
+                          </div>
+                          <div class="custom-control custom-radio">
+                            <input class="custom-control-input" type="radio" id="customRadio2" name="customRadio">
+                            <label for="customRadio2" class="custom-control-label"></label>
+                          </div>
+                          <div class="custom-control custom-radio">
+                            <input class="custom-control-input" type="radio" id="customRadio3" name="customRadio">
+                            <label for="customRadio3" class="custom-control-label"></label>
+                          </div>
+                        </div>
                       </td>
                     </tr>
                   </table>
