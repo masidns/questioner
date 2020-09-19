@@ -12,7 +12,7 @@ class Pertanyaan extends CI_Controller
         parent::__construct();
         $this->load->library('mylib');
         $this->load->model('Pertanyaan_model');
-        
+
         if (!$this->session->userdata('isLogin')) {
             redirect('auth/index');
         }

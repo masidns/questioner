@@ -278,7 +278,11 @@ if (isset($_view) && $_view) {
     //   }
     // });
 
-    $('#smartwizard').smartWizard();
+    $(document).ready(function(){
+
+
+
+      });
   </script>
 </body>
 

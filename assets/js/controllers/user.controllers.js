@@ -11,37 +11,37 @@ function PertanyaanController($scope, helperServices, PertanyaanService) {
     PertanyaanService.get().then(x => {
         $scope.datas = x;
         $scope.showData();
-    })
-    $scope.showData = (item) => {
-        if (item) {
-            var grouplayanan = $scope.datas.group.filter(x => x.id_layanan == item.id_layanan);
-            var data = angular.copy($scope.datas.aspek);
-            data.forEach(aspek => {
-                aspek.itemaspek.forEach(itemaspek => {
-                    itemaspek.checked = false;
-                    grouplayanan.forEach(group => {
-                        if (itemaspek.id_kuisioner == group.id_kuisioner) {
-                            itemaspek.checked = true;
-                        }
-                    });
-                });
+        setTimeout(() => {
+            $('#smartwizard').smartWizard({
+                selected: 0,
+                theme: 'arrows',
+                autoAdjustHeight: true,
+                transitionEffect: 'fade',
+                showStepURLhash: false,
+
             });
-            item.pertanyaan = data;
-        } else {
-            var set = $scope.datas.layanan[0];
+        }, 500);
+    })
+    $scope.showData = () => {
+        // var set = $scope.datas.layanan[0];
+        $scope.datas.layanan.forEach(set => {
+            set.pertanyaan=[];
             var grouplayanan = $scope.datas.group.filter(x => x.id_layanan == set.id_layanan);
             var data = angular.copy($scope.datas.aspek);
             data.forEach(aspek => {
+                aspek.dataaspek = [];
                 aspek.itemaspek.forEach(itemaspek => {
                     itemaspek.checked = false;
                     grouplayanan.forEach(group => {
                         if (itemaspek.id_kuisioner == group.id_kuisioner) {
-                            itemaspek.checked = true;
+                            aspek.dataaspek.push(angular.copy(itemaspek))
                         }
                     });
                 });
+                set.pertanyaan.push(angular.copy(aspek));
             });
-            set.pertanyaan = data;
-        }
+            // set.pertanyaan = data;
+        });
+
     }
 }

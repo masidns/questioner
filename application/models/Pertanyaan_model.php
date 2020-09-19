@@ -9,12 +9,12 @@ class Pertanyaan_model extends CI_Model
         parent::__construct();
         $this->load->model('Aspek_penilaian_model');
         $this->load->model('Layanan_model');
-        
-        
+
     }
 
-    public function getdetail(){
-        $setgroup = $this->db->get_where('setgroup', ['status'=>1])->result()[0];
+    public function getdetail()
+    {
+        $setgroup = $this->db->get_where('setgroup', ['status' => 1])->result()[0];
         $group = $this->db->get_where('grup_kuisioner', ['idsetgroup' => $setgroup->idsetgroup])->result();
         $aspek = $this->Aspek_penilaian_model->get_all_aspek_penilaian();
         foreach ($aspek as $key => $value) {
@@ -24,6 +24,7 @@ class Pertanyaan_model extends CI_Model
             'group' => $group,
             'layanan' => $this->Layanan_model->get_all_layanan(),
             'aspek' => $aspek,
+            'rangenilai' => $this->db->get('range_nilai')->result(),
         ];
         return $data;
     }
