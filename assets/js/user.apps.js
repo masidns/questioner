@@ -1,5 +1,6 @@
 angular.module('apps', [
     'ctrl',
     'helper.service',
-    'admin.services'
+    'admin.services',
+    'angular-steps'
 ]);

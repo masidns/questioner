@@ -31,12 +31,9 @@ class Pertanyaan extends CI_Controller
      * Adding a new aspek_penilaian
      */
 
-    public function login()
+    public function getdata()
     {
-        $result = $this->mylib->restlogin($this->input->post('username'), $this->input->post('password'));
-        $result['isLogin'] = true;
-        $this->session->set_userdata($result);
-        redirect('dashboard/index');
+
     }
 
     public function add()
