@@ -29,7 +29,8 @@ class Auth extends CI_Controller
     public function login()
     {
         $result = $this->mylib->restlogin($this->input->post('username'), $this->input->post('password'));
-        if(isset($result->IdUser)){
+        $data = (object) $result;
+        if(isset($data->IdUser)){
             $result['isLogin'] = true;
             $this->session->set_userdata($result);
             if ($this->session->userdata('role') == "Admin") {
