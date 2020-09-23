@@ -19,7 +19,7 @@ class Home extends CI_Controller
     public function index()
     {
         // $data['aspek_penilaian'] = $this->Aspek_penilaian_model->get_all_aspek_penilaian();
-        $data['title'] = ['title' => 'Aspek Penilaian'];
+        $data['title'] = ['title' => 'Home'];
         $data['_view'] = 'user/home';
         $this->load->view('user/template/main', $data);
     }

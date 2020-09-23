@@ -4,7 +4,7 @@ function helperServices($location) {
 	var service = { IsBusy: false, absUrl: $location.$$absUrl };
 	service.url = $location.$$protocol + '://' + $location.$$host;
 	if ($location.$$port) {
-		// service.url = service.url + ':' + $location.$$port + "/questioner";
+		// service.url = service.url + ':' + $location.$$port + '/questioner';
 		service.url = service.url + ':' + $location.$$port;
 	}
 

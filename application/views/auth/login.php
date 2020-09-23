@@ -69,7 +69,7 @@
   <script src="<?=base_url();?>assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
   <!-- AdminLTE App -->
   <script src="<?=base_url();?>assets/dist/js/adminlte.min.js"></script>
-  <script src="<?=base_url();?>assets/node_modules/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <script type="text/javascript">
     $(function () {
       $(document).ready(function () {
@@ -80,7 +80,7 @@
               if (a[1].replace(/\s/g, '') == 'success') {
                   swal("Information!", a[0], "success");
               } else {
-                  swal("Information!", a[0], "error");
+                  swal(a[0],"", "error");
               }
           }
       })
