@@ -24,7 +24,7 @@ class Pertanyaan extends CI_Controller
     public function index()
     {
         // $data['aspek_penilaian'] = $this->Aspek_penilaian_model->get_all_aspek_penilaian();
-        $data['title'] = ['title' => 'Aspek Penilaian'];
+        $data['title'] = ['title' => 'Penilaian'];
         $data['_view'] = 'user/pertanyaan';
         $this->load->view('user/template/main', $data);
     }
@@ -42,7 +42,7 @@ class Pertanyaan extends CI_Controller
     public function add()
     {
         $data = json_decode($this->security->xss_clean($this->input->raw_input_stream), true);
-        $result = $this->Aspek_penilaian_model->add_aspek_penilaian($data);
+        $result = $this->Pertanyaan_model->simpan($data);
         echo json_decode($result);
     }
 

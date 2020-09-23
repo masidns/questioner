@@ -1,5 +1,4 @@
 <div ng-app="apps" ng-controller="PertanyaanController">
-
   <div id="smartwizard">
     <ul>
       <li ng-repeat="item in datas.layanan"><a href="#step-{{$index+1}}" class="sw-tabdata">Group
@@ -10,7 +9,6 @@
     </ul>
     <div>
       <div ng-repeat="layanan in datas.layanan" id="step-{{$index+1}}">
-        <form action="">
           <div id="accordion">
             <div class="card" ng-repeat="itemaspek in layanan.pertanyaan">
               <div class="card-header" id="heading{{itemaspek.id_aspek}}">
@@ -50,7 +48,7 @@
                               <input class="custom-control-input" type="radio"
                                 id="customRadio{{itemaspek.id_aspek}}{{ range.id_range}}{{ itempertanyaan.id_kuisioner}}{{ layanan.id_layanan}}"
                                 name="nilai{{itemaspek.id_aspek}}{{ itempertanyaan.id_kuisioner}}"
-                                ng-model="itempertanyaan.checked" ng-change="model.id_periode=periode.id_periode;model.id_range=range.id_range;model.id_grup = itempertanyaan.id_grup; addItem()" value="{{range.id_range}}" required>
+                                ng-model="itempertanyaan.checked" ng-change="model.id_periode=periode.id_periode;model.id_range=range.id_range;model.id_grup = itempertanyaan.id_grup; addItem()" value="{{range.id_range}}">
                               <label
                                 for="customRadio{{itemaspek.id_aspek}}{{ range.id_range}}{{ itempertanyaan.id_kuisioner}}{{ layanan.id_layanan}}"
                                 class="custom-control-label">{{$index+1}}&nbsp;&nbsp;&nbsp;&nbsp;</label>
@@ -66,7 +64,19 @@
               </div>
             </div>
           </div>
-        </form>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="confirm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
+    <div class="modal-dialog modal-dialog-centered modal-sm">
+      <div class="modal-content">
+        <div class="modal-body text-center">
+          Anda Yakin ???
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary btn-sm" ng-click="simpan()">Simpan</button>
+        </div>
       </div>
     </div>
   </div>
