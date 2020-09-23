@@ -79,7 +79,7 @@ function PertanyaanController($scope, helperServices, PertanyaanService) {
 				$scope.dataPertanyaan;
 			});
 		} else {
-			swal('Information', 'anda belum menjawab semua pertanyaan mohon periksa kembali daftar pertanyaan', 'info');
+			swal('Information', 'Gagal Menyimpan anda belum menjawab semua pertanyaan', 'info');
 		}
 	};
 }
