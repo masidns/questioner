@@ -38,6 +38,23 @@ function HomeServices($q, $http, helperServices) {
 
 		return def.promise;
 	};
+	service.getMahasiswa = function() {
+		var def = $q.defer();
+		$http({
+			method: 'Get',
+			url: 'https://restsimak.stimiksepnop.ac.id/v2/datamahasiswa'
+		}).then(
+			(response) => {
+				def.resolve(response.data);
+			},
+			(err) => {
+				message.error(err.data);
+				def.reject(err);
+			}
+		);
+
+		return def.promise;
+	};
 	return service;
 }
 

@@ -16,7 +16,7 @@
         <div class="small-box bg-success">
         <div class="inner">
             <h4>Presentase</h4>
-            <h3>0.1%</h3>
+            <h3>{{presentase + '%'}}</h3>
         </div>
         <div class="icon">
             <i class="fas fa-database"></i>

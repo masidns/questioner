@@ -5,10 +5,16 @@ angular
 
 function HomeController($scope, HomeServices) {
 	$scope.datas = [];
+	$scope.presentase = 0;
 	HomeServices.get().then((x) => {
 		$scope.datas = x;
-		$scope.datas = x;
 		$scope.showData($scope.datas.layanan[0]);
+		HomeServices.getMahasiswa().then((mahasiswa) => {
+			$scope.datas.mahasiswa = mahasiswa;
+			$scope.presentase = (parseFloat(
+				$scope.datas.penilai / $scope.datas.mahasiswa.filter((x) => x.statuskul == 'AKTIF').length
+			) * 100).toFixed(3);
+		});
 	});
 	var random_rgba = (length) => {
 		var color = [];
