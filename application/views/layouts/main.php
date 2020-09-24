@@ -15,6 +15,28 @@
   <link rel="stylesheet" href="<?=base_url()?>assets/dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css">
+  <link rel="stylesheet" href="<?= base_url('assets/lib/highchats/highchats.css')?>">
+  <style>
+    .cetak{
+      display:none;
+    }
+    .nocetak{
+      display: block;
+    }
+    @media print {
+         .cetak{
+           display: block;
+
+         }
+         .nocetak{
+           display: none;
+         }
+      }
+      @page {
+      size: landscape;
+    }
+  </style>
 </head>
 <body class="hold-transition sidebar-mini layout-navbar-fixed">
 <!-- Site wrapper -->
@@ -26,31 +48,11 @@
       <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
-      <!-- <li class="nav-item d-none d-sm-inline-block">
-        <a href="<?=base_url()?>assets/index3.html" class="nav-link">Home</a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Contact</a>
-      </li> -->
     </ul>
-
-    <!-- SEARCH FORM -->
-    <!-- <form class="form-inline ml-3">
-      <div class="input-group input-group-sm">
-        <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-        <div class="input-group-append">
-          <button class="btn btn-navbar" type="submit">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
-      </div>
-    </form> -->
-
-    <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
      
       <li class="nav-item">
-        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+        <a class="nav-link" href="<?= base_url('auth/logout')?>" role="button">
           <strong>LOGOUT</strong>
         </a>
       </li>
@@ -74,10 +76,7 @@
       <!-- Sidebar user (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="<?=base_url()?>assets/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-        </div>
-        <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          <a href="#" class="d-block">Admin</a>
         </div>
       </div>
 
@@ -137,9 +136,17 @@
           </li>
           <li class="nav-item">
             <a href="<?=base_url("periode")?>" class="nav-link">
-              <i class="nav-icon fas fa-home"></i>
+              <i class="nav-icon fas fa-calendar"></i>
               <p>
                 Periode
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="<?=base_url("laporan")?>" class="nav-link">
+              <i class="nav-icon fas fa-file"></i>
+              <p>
+                Laporan
               </p>
             </a>
           </li>
@@ -182,7 +189,7 @@ if (isset($_view) && $_view) {
   </div>
   <!-- /.content-wrapper -->
 
-  <footer class="main-footer">
+  <footer class="main-footer nocetak">
     <div class="float-right d-none d-sm-block">
       <b>Version</b> 3.0.5
     </div>
@@ -212,5 +219,11 @@ if (isset($_view) && $_view) {
 <!-- AdminLTE for demo purposes -->
 <script src="<?=base_url()?>assets/dist/js/demo.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/highcharts-3d.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="<?= base_url('assets/lib/jspdf/jspdf.min.js')?>"></script>
+<script src="<?= base_url('assets/lib/printArea/jquery.PrintArea.js')?>"></script>
 </body>
 </html>

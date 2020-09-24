@@ -39,7 +39,8 @@
       </ul>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+          <a class="nav-link" href="<?= base_url('auth/logout')?>" role="button" >
+          <i class="fa fa-sign-out-alt"></i>
             <strong>LOGOUT</strong>
           </a>
         </li>
@@ -87,7 +88,7 @@
             </li>
             <li class="nav-item">
               <a href="<?=base_url("user/pertanyaan")?>" class="nav-link">
-                <i class="nav-icon fa fa-SignOut"></i>
+                <i class="nav-icon fa fa-sign-out-alt"></i>
                 <p>
                   LOGOUT
                 </p>

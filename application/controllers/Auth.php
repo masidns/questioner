@@ -81,4 +81,12 @@ class Auth extends CI_Controller
 
     }
 
+    public function logout()
+    {
+        
+        unset($_SESSION);
+        redirect('auth/index');
+
+    }
+
 }

@@ -75,8 +75,8 @@ $query_builder = true;
 
 $db['default'] = array(
     'dsn' => '',
-    // 'hostname' => 'localhost',
-    'hostname' => 'stimiksepnop.ac.id',
+    'hostname' => 'localhost',
+    // 'hostname' => 'stimiksepnop.ac.id',
     'username' => 'u3011751_root',
     'password' => 'Stimik@1011',
     'database' => 'u3011751_questioner',

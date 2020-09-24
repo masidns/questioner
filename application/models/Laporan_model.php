@@ -21,12 +21,40 @@ class Laporan_model extends CI_Model {
             $group = $this->db->get_where('grup_kuisioner', ['idsetgroup' => $setgroup->idsetgroup])->result();
             $aspek = $this->Aspek_penilaian_model->get_all_aspek_penilaian();
             foreach ($aspek as $key => $value) {
-                $value->itemaspek = $this->db->get_where('kuisioner', ['id_aspek' => $value->id_aspek])->result();
+                $setdata = $this->db->query("SELECT
+                    `kuisioner`.*
+                FROM
+                    `grup_kuisioner`
+                    LEFT JOIN `kuisioner` ON `grup_kuisioner`.`id_kuisioner` =
+                `kuisioner`.`id_kuisioner` WHERE kuisioner.id_aspek='$value->id_aspek'")->result();
+                if(count($setdata)<=0)
+                    unset($aspek[$key]);
+                else{
+                    $value->itemaspek = $setdata;
+                }
+            }
+            $layanan = $this->Layanan_model->get_all_layanan();
+            foreach ($layanan as $key => $value) {
+                $array = [];
+                $id_layanan = $value['id_layanan'];
+                $itemlayanan = $this->db->query("SELECT
+                    *
+                FROM
+                    `aspek_penilaian`
+                    LEFT JOIN `kuisioner` ON `aspek_penilaian`.`id_aspek` = `kuisioner`.`id_aspek`
+                    LEFT JOIN `grup_kuisioner` ON `kuisioner`.`id_kuisioner` =
+                `grup_kuisioner`.`id_kuisioner`
+                WHERE id_layanan = $id_layanan")->result();
+                foreach ($itemlayanan as $key1 => $value1) {
+                    $array[$value1->nm_aspek][$key1]=$value1;
+                }
+                $layanan[$key]['aspek'] = $array;
             }
     
             $data = [
                 'group' => $group,
                 'layanan' => $this->Layanan_model->get_all_layanan(),
+                'datalayanan' => $layanan,
                 'aspek' => $aspek,
                 'rangenilai' => $this->db->get('range_nilai')->result(),
                 'periode' => $this->db->get('periode')->result(),

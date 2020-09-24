@@ -27,15 +27,16 @@
         <div class="card card-default">
         <div class="card-header d-flex">
             <div class="col-md-9">
-                <h3 class="card-title">Grafik</h3>
+                <h3 class="card-title">Grafik Layanan</h3>
             </div>
             <div class="col-md-3 pull-right">
                 <select class="form-control" ng-options="item as item.nama_layanan for item in datas.layanan" ng-model="layanan" ng-change="showData(layanan)"></select>
             </div>
         </div>
         <div class="card-body">
-            <canvas id="myChart" class="chartjs" width="770" height="385"
-            style="display: block; width: 770px; height: 385px;"></canvas>
+            <div id="myChart" style="width:100%; height:400px;"></div>
+            <!-- <canvas id="myChart" class="chartjs" width="770" height="385"
+            style="display: block; width: 770px; height: 385px;"></canvas> -->
         </div>
     </div>
   </div>

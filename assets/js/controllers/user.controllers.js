@@ -67,7 +67,7 @@ function HomeController($scope, HomeServices) {
 			set.push(angular.copy(itemdata));
 		});
 		console.log(set);
-		$scope.grafik(labels, set);
+		$scope.grafik(labels, set, item);
 		// var dataset = [];
 		// for (let index = 0; index < $scope.datas.rangenilai.length; index++) {
 		// 	var backgroundColor = random_rgba(1)[0];
@@ -82,15 +82,27 @@ function HomeController($scope, HomeServices) {
 		// }
 		// $scope.grafik(labels, dataset);
 	};
-	$scope.grafik = (labels, dataset) => {
+	$scope.grafik = (labels, dataset, layanan) => {
+		$('#myChart').remove(); // this is my <canvas> element
+		$('.card-body').append(
+			'<canvas id="myChart"class="chartjs" width="770" height="385"style="display: block; width: 770px; height: 385px;"><canvas>'
+		);
 		var ctx = document.getElementById('myChart').getContext('2d');
-		var myChart = new Chart(ctx, {
+		var myChart = {};
+		myChart = new Chart(ctx, {
 			type: 'bar',
 			data: {
 				labels: labels,
 				datasets: dataset
 			},
 			options: {
+				title: {
+					display: true,
+					text: 'LAYANAN ' + layanan.nama_layanan.toUpperCase(),
+					font: {
+						size: 20
+					}
+				},
 				responsive: true,
 				maintainAspectRatio: false,
 				legend: {

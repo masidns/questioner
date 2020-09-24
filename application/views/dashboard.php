@@ -16,7 +16,7 @@
         <div class="small-box bg-success">
         <div class="inner">
             <h4>Presentase</h4>
-            <h3>0.1%</h3>
+            <h3>{{presentase + '%'}}</h3>
         </div>
         <div class="icon">
             <i class="fas fa-database"></i>
@@ -27,7 +27,7 @@
         <div class="card card-default">
         <div class="card-header d-flex">
             <div class="col-md-9">
-                <h3 class="card-title">Grafik</h3>
+                <h3 class="card-title">Grafik per Layanan</h3>
             </div>
             <div class="col-md-3 pull-right">
                 <select class="form-control" ng-options="item as item.nama_layanan for item in datas.layanan" ng-model="layanan" ng-change="showData(layanan)"></select>
