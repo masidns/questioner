@@ -30,7 +30,7 @@
                 <h3 class="card-title">Grafik</h3>
             </div>
             <div class="col-md-3 pull-right">
-                <select class="form-control" ng-options="item as item.nama_layanan for item in datas.layanan" ng-model="layanan" ng-change="setLayanan(layanan)"></select>
+                <select class="form-control" ng-options="item as item.nama_layanan for item in datas.layanan" ng-model="layanan" ng-change="showData(layanan)"></select>
             </div>
         </div>
         <div class="card-body">

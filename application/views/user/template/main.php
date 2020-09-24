@@ -40,7 +40,7 @@
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
           <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
-            <i class="fas fa-th-large"></i>
+            <strong>LOGOUT</strong>
           </a>
         </li>
       </ul>
@@ -82,6 +82,14 @@
                 <i class="nav-icon fas fa-home"></i>
                 <p>
                   Pertanyaan
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="<?=base_url("user/pertanyaan")?>" class="nav-link">
+                <i class="nav-icon fa fa-SignOut"></i>
+                <p>
+                  LOGOUT
                 </p>
               </a>
             </li>
@@ -133,9 +141,9 @@ if (isset($_view) && $_view) {
     </footer>
 
     <!-- Control Sidebar -->
-    <aside class="control-sidebar control-sidebar-dark">
+    <!-- <aside class="control-sidebar control-sidebar-dark"> -->
       <!-- Control sidebar content goes here -->
-    </aside>
+    <!-- </aside> -->
     <!-- /.control-sidebar -->
   </div>
   <!-- ./wrapper -->
