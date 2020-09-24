@@ -9,6 +9,9 @@ class Daftar_penilai extends CI_Controller{
     {
         parent::__construct();
         $this->load->model('Daftar_penilai_model');
+        if (!$this->session->userdata('isLogin')) {
+            redirect('auth/index');
+        }
     } 
 
     /*

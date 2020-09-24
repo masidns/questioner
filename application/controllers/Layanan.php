@@ -10,6 +10,9 @@ class Layanan extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Layanan_model');
+        if (!$this->session->userdata('isLogin')) {
+            redirect('auth/index');
+        }
     }
 
     /*

@@ -9,6 +9,9 @@ class Grup_kuisioner extends CI_Controller{
     {
         parent::__construct();
         $this->load->model('Grup_kuisioner_model');
+        if (!$this->session->userdata('isLogin')) {
+            redirect('auth/index');
+        }
     } 
 
     /*

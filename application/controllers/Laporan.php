@@ -6,6 +6,9 @@ class Laporan extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('Laporan_model');
+        if (!$this->session->userdata('isLogin')) {
+            redirect('auth/index');
+        }
     }
     
     public function index()

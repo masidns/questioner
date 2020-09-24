@@ -9,6 +9,9 @@ class Nilai_kepuasan extends CI_Controller{
     {
         parent::__construct();
         $this->load->model('Nilai_kepuasan_model');
+        if (!$this->session->userdata('isLogin')) {
+            redirect('auth/index');
+        }
     } 
 
     /*

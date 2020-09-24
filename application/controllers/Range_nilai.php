@@ -9,6 +9,9 @@ class Range_nilai extends CI_Controller{
     {
         parent::__construct();
         $this->load->model('Range_nilai_model');
+        if (!$this->session->userdata('isLogin')) {
+            redirect('auth/index');
+        }
     } 
 
     /*

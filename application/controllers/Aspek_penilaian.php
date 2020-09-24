@@ -10,6 +10,9 @@ class Aspek_penilaian extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Aspek_penilaian_model');
+        if (!$this->session->userdata('isLogin')) {
+            redirect('auth/index');
+        }
     }
 
     /*
