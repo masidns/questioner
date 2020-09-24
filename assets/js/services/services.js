@@ -1,5 +1,6 @@
 angular
 	.module('admin.services', [])
+	.factory('HomeServices', HomeServices)
 	.factory('RangeNilaiService', RangeNilaiService)
 	.factory('AspekPenilaianService', AspekPenilaianService)
 	.factory('LayananService', LayananService)
@@ -7,6 +8,38 @@ angular
 	.factory('PeriodeService', PeriodeService)
 	.factory('GroupService', GroupService)
 	.factory('PertanyaanService', PertanyaanService);
+
+function HomeServices($q, $http, helperServices) {
+	var url = helperServices.url + '/laporan/';
+	var service = {
+		Items: []
+	};
+
+	service.get = function() {
+		var def = $q.defer();
+		if (service.instance) {
+			def.resolve(service.Items);
+		} else {
+			$http({
+				method: 'Get',
+				url: url + 'getdata'
+			}).then(
+				(response) => {
+					service.instance = true;
+					service.Items = response.data;
+					def.resolve(service.Items);
+				},
+				(err) => {
+					message.error(err.data);
+					def.reject(err);
+				}
+			);
+		}
+
+		return def.promise;
+	};
+	return service;
+}
 
 function RangeNilaiService($q, $http, helperServices) {
 	var url = helperServices.url + '/range_nilai/';

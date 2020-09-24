@@ -23,6 +23,7 @@
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   <link rel="stylesheet" href="<?=base_url('assets/dist/css/styleuser.css')?>">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css">
 </head>
 
 <body class="hold-transition sidebar-mini layout-navbar-fixed">
@@ -155,6 +156,7 @@ if (isset($_view) && $_view) {
   <script src="<?=base_url()?>assets/dist/js/demo.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <script src="<?=base_url('assets/dist/js/tes.js')?>"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
   <script>
     // $("#smartwizard").on("showStep", function (e, anchorObject, stepNumber, stepDirection, stepPosition) {
     //   //alert("You are on step "+stepNumber+" now");

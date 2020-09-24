@@ -1,5 +1,123 @@
-angular.module('ctrl', []).controller('PertanyaanController', PertanyaanController);
+angular
+	.module('ctrl', [])
+	.controller('HomeController', HomeController)
+	.controller('PertanyaanController', PertanyaanController);
 
+function HomeController($scope, HomeServices) {
+	$scope.datas = [];
+	HomeServices.get().then((x) => {
+		$scope.datas = x;
+		$scope.datas = x;
+		$scope.showData($scope.datas.layanan[0]);
+	});
+	var random_rgba = (length) => {
+		var color = [];
+		for (let index = 0; index < length; index++) {
+			var o = Math.round,
+				r = Math.random,
+				s = 255;
+			color.push('rgba(' + o(r() * s) + ',' + o(r() * s) + ',' + o(r() * s) + ',' + 0.7 + ')');
+		}
+		// console.log(color);
+		return color;
+	};
+	$scope.showData = (item) => {
+		var ceklebel = true;
+		var labels = [];
+		var set = [];
+		$scope.datas.rangenilai.forEach((nilai) => {
+			var itemdata = {};
+			itemdata.label = nilai.deskripsi;
+			itemdata.data = [];
+			$scope.datas.aspek.forEach((valueaspek) => {
+				if (ceklebel) {
+					labels.push(valueaspek.nm_aspek);
+				}
+				var totalnilai = 0;
+				valueaspek.itemaspek.forEach((pertanyaan) => {
+					var cek = $scope.datas.group.find(
+						(x) => x.id_kuisioner === pertanyaan.id_kuisioner && x.id_layanan === item.id_layanan
+					);
+					if (cek) {
+						totalnilai +=
+							$scope.datas.nilaikepuasan.filter(
+								(x) => x.id_grup === cek.id_grup && x.id_range === nilai.id_range
+							).length /
+							parseFloat($scope.datas.penilai) *
+							100;
+						// console.log(
+						// 	$scope.datas.nilaikepuasan.filter(
+						// 		(x) => x.id_grup === cek.id_grup && x.id_range === nilai.id_range
+						// 	).length /
+						// 		parseFloat($scope.datas.penilai) *
+						// 		100
+						// );
+					}
+				});
+				itemdata.data.push(angular.copy(totalnilai / valueaspek.itemaspek.length));
+			});
+			ceklebel = false;
+			itemdata.backgroundColor = random_rgba(1)[0];
+			set.push(angular.copy(itemdata));
+		});
+		console.log(set);
+		$scope.grafik(labels, set);
+		// var dataset = [];
+		// for (let index = 0; index < $scope.datas.rangenilai.length; index++) {
+		// 	var backgroundColor = random_rgba(1)[0];
+		// 	var itemm = {};
+		// 	itemm.label = $scope.datas.rangenilai[index].deskripsi;
+		// 	itemm.data = [];
+		// 	for (let index1 = 0; index1 < set.length; index1++) {
+		// 		itemm.data.push(set[index1][index]);
+		// 	}
+		// 	itemm.backgroundColor = backgroundColor;
+		// 	dataset.push(angular.copy(itemm));
+		// }
+		// $scope.grafik(labels, dataset);
+	};
+	$scope.grafik = (labels, dataset) => {
+		var ctx = document.getElementById('myChart').getContext('2d');
+		var myChart = new Chart(ctx, {
+			type: 'bar',
+			data: {
+				labels: labels,
+				datasets: dataset
+			},
+			options: {
+				responsive: true,
+				maintainAspectRatio: false,
+				legend: {
+					display: true,
+					position: 'top'
+				},
+				scales: {
+					xAxes: [
+						{
+							display: true,
+							scaleLabel: {
+								display: true,
+								labelString: 'Aspek Penilaian'
+							}
+						}
+					],
+					yAxes: [
+						{
+							ticks: {
+								beginAtZero: true
+							},
+							display: true,
+							scaleLabel: {
+								display: true,
+								labelString: 'Nilai'
+							}
+						}
+					]
+				}
+			}
+		});
+	};
+}
 function PertanyaanController($scope, helperServices, PertanyaanService) {
 	$scope.datas = [];
 	$scope.model = {};
