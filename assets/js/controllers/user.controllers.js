@@ -124,6 +124,7 @@ function HomeController($scope, HomeServices) {
 		});
 	};
 }
+
 function PertanyaanController($scope, helperServices, PertanyaanService) {
 	$scope.datas = [];
 	$scope.model = {};
