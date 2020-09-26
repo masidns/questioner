@@ -193,7 +193,7 @@ function PertanyaanController($scope, helperServices, PertanyaanService) {
 			element.pertanyaan.forEach((itempertanyaan) => {
 				if (!itempertanyaan.dataaspek) {
 					var index = element.pertanyaan.indexOf(itempertanyaan);
-					element.pertanyaan.layanan.splice(index, 1);
+					element.pertanyaan.splice(index, 1);
 				}
 			});
 		});
