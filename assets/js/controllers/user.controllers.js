@@ -192,8 +192,8 @@ function PertanyaanController($scope, helperServices, PertanyaanService) {
 		layanan.forEach((element) => {
 			element.pertanyaan.forEach((itempertanyaan) => {
 				if (!itempertanyaan.dataaspek) {
-					var index = $scope.datas.layanan.indexOf(itempertanyaan);
-					$scope.datas.layanan.splice(index, 1);
+					var index = element.pertanyaan.indexOf(itempertanyaan);
+					element.pertanyaan.layanan.splice(index, 1);
 				}
 			});
 		});
