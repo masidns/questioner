@@ -14,14 +14,14 @@
               <div class="card-header" id="heading{{itemaspek.id_aspek}}">
                 <h5 class="mb-0">
                   <button ng-class="{'btn btn-link': $index==0, 'btn btn-link collapsed': $index !==0}"
-                    data-toggle="collapse" data-target="#collapse{{itemaspek.id_aspek}}" aria-expanded="true"
-                    aria-controls="collapse{{itemaspek.id_aspek}}">
+                    data-toggle="collapse" data-target="#collapse{{itemaspek.id_aspek}}{{layanan.id_layanan}}" aria-expanded="true"
+                    aria-controls="collapse{{itemaspek.id_aspek}}{{layanan.id_layanan}}">
                     {{itemaspek.nm_aspek}}
                   </button>
                 </h5>
               </div>
 
-              <div id="collapse{{itemaspek.id_aspek}}" ng-class="{'collapse show': $index==0, 'collapse': $index!=0}"
+              <div id="collapse{{itemaspek.id_aspek}}{{layanan.id_layanan}}" ng-class="{'collapse show': $index==0, 'collapse': $index!=0}"
                 aria-labelledby="heading{{itemaspek.id_aspek}}" data-parent="#accordion">
                 <div class="card-body">
                   <div class="table-responsive">
