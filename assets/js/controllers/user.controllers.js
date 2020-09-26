@@ -188,6 +188,15 @@ function PertanyaanController($scope, helperServices, PertanyaanService) {
 			});
 			// set.pertanyaan = data;
 		});
+		var layanan = angular.copy($scope.datas.layanan);
+		layanan.forEach((element) => {
+			element.pertanyaan.forEach((itempertanyaan) => {
+				if (itempertanyaan.dataaspek.length == 0) {
+					var index = $scope.datas.layanan.indexOf(itempertanyaan);
+					$scope.datas.layanan.splice(index, 1);
+				}
+			});
+		});
 	};
 	$scope.addItem = () => {
 		var cek = $scope.dataPertanyaan.find(
