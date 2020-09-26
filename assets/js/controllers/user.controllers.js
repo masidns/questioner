@@ -181,7 +181,7 @@ function PertanyaanController($scope, helperServices, PertanyaanService) {
 						}
 					});
 				});
-				if (!aspek.dataaspek) {
+				if (aspek.dataaspek.length == 0) {
 					delete aspek.dataaspek;
 				}
 				set.pertanyaan.push(angular.copy(aspek));
