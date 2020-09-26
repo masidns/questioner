@@ -181,22 +181,20 @@ function PertanyaanController($scope, helperServices, PertanyaanService) {
 						}
 					});
 				});
-				if (aspek.dataaspek.length == 0) {
-					delete aspek.dataaspek;
+				if (aspek.dataaspek.length != 0) {
+					set.pertanyaan.push(angular.copy(aspek));
 				}
-				set.pertanyaan.push(angular.copy(aspek));
 			});
 			// set.pertanyaan = data;
 		});
-		var layanan = angular.copy($scope.datas.layanan);
-		$scope.datas.layanan.forEach((element) => {
-			element.pertanyaan.forEach((itempertanyaan) => {
-				if (!itempertanyaan.dataaspek) {
-					var index = element.pertanyaan.indexOf(itempertanyaan);
-					element.pertanyaan.splice(index, 1);
-				}
-			});
-		});
+		// $scope.datas.layanan.forEach((element) => {
+		// 	element.pertanyaan.forEach((itempertanyaan) => {
+		// 		if (!itempertanyaan.dataaspek) {
+		// 			var index = element.pertanyaan.indexOf(itempertanyaan);
+		// 			element.pertanyaan.splice(index, 1);
+		// 		}
+		// 	});
+		// });
 	};
 	$scope.addItem = () => {
 		var cek = $scope.dataPertanyaan.find(
