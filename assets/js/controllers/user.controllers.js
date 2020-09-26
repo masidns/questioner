@@ -189,7 +189,7 @@ function PertanyaanController($scope, helperServices, PertanyaanService) {
 			// set.pertanyaan = data;
 		});
 		var layanan = angular.copy($scope.datas.layanan);
-		layanan.forEach((element) => {
+		$scope.datas.layanan.forEach((element) => {
 			element.pertanyaan.forEach((itempertanyaan) => {
 				if (!itempertanyaan.dataaspek) {
 					var index = element.pertanyaan.indexOf(itempertanyaan);
