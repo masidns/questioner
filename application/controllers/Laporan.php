@@ -1,7 +1,8 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Laporan extends CI_Controller {
+class Laporan extends CI_Controller
+{
     public function __construct()
     {
         parent::__construct();
@@ -10,7 +11,7 @@ class Laporan extends CI_Controller {
             redirect('auth/index');
         }
     }
-    
+
     public function index()
     {
         $data['title'] = ['title' => 'Laporan'];
@@ -23,7 +24,6 @@ class Laporan extends CI_Controller {
         $result = $this->Laporan_model->select();
         echo json_encode($result);
     }
-
 }
 
 /* End of file Controllername.php */
