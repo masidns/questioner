@@ -252,6 +252,10 @@ function AspekPenilaianController($scope, AspekPenilaianService) {
 		alert("Data Tersimpan");
 
 	}
+
+	$scope.panggil = (param) => {
+		console.log(param);
+	}
 }
 
 function layananController($scope, LayananService) {

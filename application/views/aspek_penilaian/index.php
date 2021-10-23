@@ -38,7 +38,7 @@
                             <th>Deskripsi</th>
                             <th width="10%">Actions</th>
                         </tr>
-                        <tr ng-repeat="item in datas">
+                        <tr ng-repeat="item in datas" ng-click="panggil(item)">
                             <td>{{$index+1}}</td>
                             <td>{{item.nm_aspek}}</td>
                             <td>{{item.deskripsi}}</td>
