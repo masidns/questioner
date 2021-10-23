@@ -9,14 +9,16 @@
                     <form ng-submit="simpan()">
                         <div class="form-group">
                             <label for="" class="col-form-label-sm">Nama Aspek</label>
-                            <input type="text" class="form-control form-control-sm" ng-model="model.nm_aspek" placeholder="" required>
+                            <input type="text" class="form-control form-control-sm" ng-model="model.nm_aspek"
+                                placeholder="" required>
                         </div>
                         <div class="form-group">
                             <label for="">Descripsi</label>
-                            <textarea class="form-control form-control-sm" ng-model="model.deskripsi" rows="3" required></textarea>
+                            <textarea class="form-control form-control-sm" ng-model="model.deskripsi" rows="3"
+                                required></textarea>
                         </div>
                         <div class="card-footer">
-                            <button type="submit" class="btn btn-primary">{{tombol}}</button>
+                            <button type=" submit" class="btn btn-primary">{{tombol}}</button>
                             <button type="button" class="btn btn-warning" ng-click="clear()">Clear</button>
                         </div>
                     </form>
@@ -41,7 +43,8 @@
                             <td>{{item.nm_aspek}}</td>
                             <td>{{item.deskripsi}}</td>
                             <td>
-                                <a href="" class="btn btn-info btn-xs" ng-click ="edit(item)"><span class="fa fa-pencil"></span> Edit</a>
+                                <a href="" class="btn btn-info btn-xs" ng-click="edit(item)"><span
+                                        class="fa fa-pencil"></span> Edit</a>
                                 <!-- <a href="" class="btn btn-danger btn-xs" ng-click="hapus(item)"><span class="fa fa-trash"></span> Delete</a> -->
                             </td>
                         </tr>
@@ -50,4 +53,5 @@
             </div>
         </div>
     </div>
+
 </div>

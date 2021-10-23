@@ -75,8 +75,8 @@ function HomeController($scope, HomeServices) {
 			set.push(angular.copy(itemdata));
 		});
 		$datasets = angular.copy(set);
-		for (let index = 0; index <= $datasets.length-1; index++) {
-			set[index].label = $datasets[($datasets.length-1)-index].label;
+		for (let index = 0; index <= $datasets.length - 1; index++) {
+			set[index].label = $datasets[($datasets.length - 1) - index].label;
 		}
 		console.log(set);
 		$scope.grafik(labels, set, item);
@@ -247,6 +247,11 @@ function AspekPenilaianController($scope, AspekPenilaianService) {
 			});
 		});
 	};
+
+	$scope.prosesModal = () => {
+		alert("Data Tersimpan");
+
+	}
 }
 
 function layananController($scope, LayananService) {
@@ -298,6 +303,8 @@ function layananController($scope, LayananService) {
 			});
 		});
 	};
+
+
 }
 
 function QuestionerController($scope, QuestionerService) {
@@ -614,24 +621,11 @@ function LaporanController($scope, HomeServices) {
 			set.push(angular.copy(itemdata));
 		});
 		$datasets = angular.copy(set);
-		for (let index = 0; index <= $datasets.length-1; index++) {
-			set[index].label = $datasets[($datasets.length-1)-index].label;
+		for (let index = 0; index <= $datasets.length - 1; index++) {
+			set[index].label = $datasets[($datasets.length - 1) - index].label;
 		}
 		console.log(set);
 		$scope.grafik(labels, set, value);
-		// var dataset = [];
-		// for (let index = 0; index < $scope.datas.rangenilai.length; index++) {
-		// 	var backgroundColor = random_rgba(1)[0];
-		// 	var itemm = {};
-		// 	itemm.label = $scope.datas.rangenilai[index].deskripsi;
-		// 	itemm.data = [];
-		// 	for (let index1 = 0; index1 < set.length; index1++) {
-		// 		itemm.data.push(set[index1][index]);
-		// 	}
-		// 	itemm.backgroundColor = backgroundColor;
-		// 	dataset.push(angular.copy(itemm));
-		// }
-		// $scope.grafik(labels, dataset);
 	};
 	$scope.grafik = (labels, dataset, layanan) => {
 		$scope.dataPrint = [];

@@ -4,8 +4,8 @@ function helperServices($location) {
 	var service = { IsBusy: false, absUrl: $location.$$absUrl };
 	service.url = $location.$$protocol + '://' + $location.$$host;
 	if ($location.$$port) {
-		// service.url = service.url + ':' + $location.$$port + '/questioner';
-		service.url = service.url + ':' + $location.$$port;
+		service.url = service.url + ':' + $location.$$port + '/questioner';
+		// service.url = service.url + ':' + $location.$$port;
 	}
 
 	// '    http://localhost:5000';
@@ -16,7 +16,7 @@ function helperServices($location) {
 			const key = keyGetter(item);
 			const collection = map.get(key);
 			if (!collection) {
-				map.set(key, [ item ]);
+				map.set(key, [item]);
 			} else {
 				collection.push(item);
 			}

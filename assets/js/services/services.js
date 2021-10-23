@@ -15,7 +15,7 @@ function HomeServices($q, $http, helperServices) {
 		Items: []
 	};
 
-	service.get = function() {
+	service.get = function () {
 		var def = $q.defer();
 		if (service.instance) {
 			def.resolve(service.Items);
@@ -38,7 +38,7 @@ function HomeServices($q, $http, helperServices) {
 
 		return def.promise;
 	};
-	service.getMahasiswa = function() {
+	service.getMahasiswa = function () {
 		var def = $q.defer();
 		$http({
 			method: 'Get',
@@ -64,7 +64,7 @@ function RangeNilaiService($q, $http, helperServices) {
 		Items: []
 	};
 
-	service.get = function() {
+	service.get = function () {
 		var def = $q.defer();
 		if (service.instance) {
 			def.resolve(service.Items);
@@ -88,7 +88,7 @@ function RangeNilaiService($q, $http, helperServices) {
 		return def.promise;
 	};
 
-	service.post = function(param) {
+	service.post = function (param) {
 		var def = $q.defer();
 		$http({
 			method: 'Post',
@@ -108,7 +108,7 @@ function RangeNilaiService($q, $http, helperServices) {
 		return def.promise;
 	};
 
-	service.put = function(param) {
+	service.put = function (param) {
 		var def = $q.defer();
 		$http({
 			method: 'Put',
@@ -131,7 +131,7 @@ function RangeNilaiService($q, $http, helperServices) {
 		return def.promise;
 	};
 
-	service.delete = function(id) {
+	service.delete = function (id) {
 		var def = $q.defer();
 		$http({
 			method: 'Delete',
@@ -162,7 +162,7 @@ function AspekPenilaianService($q, $http, helperServices) {
 		Items: []
 	};
 
-	service.get = function() {
+	service.get = function () {
 		var def = $q.defer();
 		if (service.instance) {
 			def.resolve(service.Items);
@@ -177,7 +177,7 @@ function AspekPenilaianService($q, $http, helperServices) {
 					def.resolve(service.Items);
 				},
 				(err) => {
-					message.error(err.data);
+					alert(err.data)
 					def.reject(err);
 				}
 			);
@@ -186,7 +186,7 @@ function AspekPenilaianService($q, $http, helperServices) {
 		return def.promise;
 	};
 
-	service.post = function(param) {
+	service.post = function (param) {
 		var def = $q.defer();
 		$http({
 			method: 'Post',
@@ -206,7 +206,7 @@ function AspekPenilaianService($q, $http, helperServices) {
 		return def.promise;
 	};
 
-	service.put = function(param) {
+	service.put = function (param) {
 		var def = $q.defer();
 		$http({
 			method: 'Put',
@@ -229,7 +229,7 @@ function AspekPenilaianService($q, $http, helperServices) {
 		return def.promise;
 	};
 
-	service.delete = function(id) {
+	service.delete = function (id) {
 		var def = $q.defer();
 		$http({
 			method: 'Delete',
@@ -260,7 +260,7 @@ function LayananService($q, $http, helperServices) {
 		Items: []
 	};
 
-	service.get = function() {
+	service.get = function () {
 		var def = $q.defer();
 		if (service.instance) {
 			def.resolve(service.Items);
@@ -284,7 +284,7 @@ function LayananService($q, $http, helperServices) {
 		return def.promise;
 	};
 
-	service.post = function(param) {
+	service.post = function (param) {
 		var def = $q.defer();
 		$http({
 			method: 'Post',
@@ -304,7 +304,7 @@ function LayananService($q, $http, helperServices) {
 		return def.promise;
 	};
 
-	service.put = function(param) {
+	service.put = function (param) {
 		var def = $q.defer();
 		$http({
 			method: 'Put',
@@ -326,7 +326,7 @@ function LayananService($q, $http, helperServices) {
 		return def.promise;
 	};
 
-	service.delete = function(id) {
+	service.delete = function (id) {
 		var def = $q.defer();
 		$http({
 			method: 'Delete',
@@ -357,7 +357,7 @@ function QuestionerService($q, $http, helperServices) {
 		Items: []
 	};
 
-	service.get = function() {
+	service.get = function () {
 		var def = $q.defer();
 		if (service.instance) {
 			def.resolve(service.Items);
@@ -381,7 +381,7 @@ function QuestionerService($q, $http, helperServices) {
 		return def.promise;
 	};
 
-	service.post = function(param) {
+	service.post = function (param) {
 		var def = $q.defer();
 		$http({
 			method: 'Post',
@@ -401,7 +401,7 @@ function QuestionerService($q, $http, helperServices) {
 		return def.promise;
 	};
 
-	service.put = function(param) {
+	service.put = function (param) {
 		var def = $q.defer();
 		$http({
 			method: 'Put',
@@ -423,7 +423,7 @@ function QuestionerService($q, $http, helperServices) {
 		return def.promise;
 	};
 
-	service.delete = function(id) {
+	service.delete = function (id) {
 		var def = $q.defer();
 		$http({
 			method: 'Delete',
@@ -454,7 +454,7 @@ function PeriodeService($q, $http, helperServices) {
 		Items: []
 	};
 
-	service.get = function() {
+	service.get = function () {
 		var def = $q.defer();
 		if (service.instance) {
 			def.resolve(service.Items);
@@ -478,7 +478,7 @@ function PeriodeService($q, $http, helperServices) {
 		return def.promise;
 	};
 
-	service.post = function(param) {
+	service.post = function (param) {
 		var def = $q.defer();
 		$http({
 			method: 'Post',
@@ -498,7 +498,7 @@ function PeriodeService($q, $http, helperServices) {
 		return def.promise;
 	};
 
-	service.put = function(param) {
+	service.put = function (param) {
 		var def = $q.defer();
 		$http({
 			method: 'Put',
@@ -520,7 +520,7 @@ function PeriodeService($q, $http, helperServices) {
 		return def.promise;
 	};
 
-	service.delete = function(id) {
+	service.delete = function (id) {
 		var def = $q.defer();
 		$http({
 			method: 'Delete',
@@ -551,7 +551,7 @@ function GroupService($q, $http, helperServices) {
 		Items: []
 	};
 
-	service.get = function() {
+	service.get = function () {
 		var def = $q.defer();
 		if (service.instance) {
 			def.resolve(service.Items);
@@ -575,7 +575,7 @@ function GroupService($q, $http, helperServices) {
 		return def.promise;
 	};
 
-	service.getdetail = function() {
+	service.getdetail = function () {
 		var def = $q.defer();
 		var id = helperServices.absUrl.split('/');
 		id = id[id.length - 1];
@@ -601,7 +601,7 @@ function GroupService($q, $http, helperServices) {
 		return def.promise;
 	};
 
-	service.post = function(param) {
+	service.post = function (param) {
 		var def = $q.defer();
 		$http({
 			method: 'Post',
@@ -621,7 +621,7 @@ function GroupService($q, $http, helperServices) {
 		return def.promise;
 	};
 
-	service.postitem = function(param) {
+	service.postitem = function (param) {
 		var def = $q.defer();
 		var id = helperServices.absUrl.split('/');
 		param.idsetgroup = id[id.length - 1];
@@ -642,7 +642,7 @@ function GroupService($q, $http, helperServices) {
 		return def.promise;
 	};
 
-	service.put = function(param) {
+	service.put = function (param) {
 		var def = $q.defer();
 		$http({
 			method: 'Put',
@@ -664,7 +664,7 @@ function GroupService($q, $http, helperServices) {
 		return def.promise;
 	};
 
-	service.delete = function(id) {
+	service.delete = function (id) {
 		var def = $q.defer();
 		$http({
 			method: 'Delete',
@@ -695,7 +695,7 @@ function PertanyaanService($q, $http, helperServices) {
 		Items: []
 	};
 
-	service.get = function() {
+	service.get = function () {
 		var def = $q.defer();
 		if (service.instance) {
 			def.resolve(service.Items);
@@ -719,7 +719,7 @@ function PertanyaanService($q, $http, helperServices) {
 		return def.promise;
 	};
 
-	service.getdetail = function() {
+	service.getdetail = function () {
 		var def = $q.defer();
 		var id = helperServices.absUrl.split('/');
 		id = id[id.length - 1];
@@ -745,7 +745,7 @@ function PertanyaanService($q, $http, helperServices) {
 		return def.promise;
 	};
 
-	service.post = function(param) {
+	service.post = function (param) {
 		var def = $q.defer();
 		$http({
 			method: 'Post',
@@ -765,7 +765,7 @@ function PertanyaanService($q, $http, helperServices) {
 		return def.promise;
 	};
 
-	service.postitem = function(param) {
+	service.postitem = function (param) {
 		var def = $q.defer();
 		var id = helperServices.absUrl.split('/');
 		param.idsetgroup = id[id.length - 1];
@@ -786,7 +786,7 @@ function PertanyaanService($q, $http, helperServices) {
 		return def.promise;
 	};
 
-	service.put = function(param) {
+	service.put = function (param) {
 		var def = $q.defer();
 		$http({
 			method: 'Put',
@@ -808,7 +808,7 @@ function PertanyaanService($q, $http, helperServices) {
 		return def.promise;
 	};
 
-	service.delete = function(id) {
+	service.delete = function (id) {
 		var def = $q.defer();
 		$http({
 			method: 'Delete',
