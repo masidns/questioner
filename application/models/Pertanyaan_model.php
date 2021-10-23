@@ -14,7 +14,7 @@ class Pertanyaan_model extends CI_Model
 
     public function getdetail()
     {
-        $today = date('yy-m-d');
+        $today = date('yyyy-m-d');
         $usera = $this->session->userdata();
         $id_periode = $this->db->query("SELECT * FROM periode where selesai>='$today'")->result()[0]->id_periode;
         $user = $this->session->userdata('IdUser');
