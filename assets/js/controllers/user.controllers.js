@@ -67,8 +67,8 @@ function HomeController($scope, HomeServices) {
 			set.push(angular.copy(itemdata));
 		});
 		$datasets = angular.copy(set);
-		for (let index = 0; index <= $datasets.length-1; index++) {
-			set[index].label = $datasets[($datasets.length-1)-index].label;
+		for (let index = 0; index <= $datasets.length - 1; index++) {
+			set[index].label = $datasets[($datasets.length - 1) - index].label;
 		}
 		console.log(set);
 		$scope.grafik(labels, set, item);
@@ -152,7 +152,8 @@ function PertanyaanController($scope, helperServices, PertanyaanService) {
 		if (x.message) {
 			swal('Information', x.message, 'info');
 		} else {
-			$scope.datas = x;
+			$scope.datas = x.layanan.filter(x => x.pertanyaan.length > 0);
+
 			$scope.showData();
 			var today = new Date();
 			var date = today.getFullYear() + '-0' + (today.getMonth() + 1) + '-' + today.getDate();
