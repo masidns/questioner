@@ -152,7 +152,7 @@ function PertanyaanController($scope, helperServices, PertanyaanService) {
 		if (x.message) {
 			swal('Information', x.message, 'info');
 		} else {
-			$scope.datas = x.layanan.filter(x => x.pertanyaan.length > 0);
+			$scope.datas = x;
 
 			$scope.showData();
 			var today = new Date();
@@ -190,6 +190,7 @@ function PertanyaanController($scope, helperServices, PertanyaanService) {
 					set.pertanyaan.push(angular.copy(aspek));
 				}
 			});
+			$scope.datas.layanan = $scope.datas.layanan.filter(x => x.pertanyaan.length > 0)
 			// set.pertanyaan = data;
 		});
 		// $scope.datas.layanan.forEach((element) => {
