@@ -190,9 +190,9 @@ function PertanyaanController($scope, helperServices, PertanyaanService) {
 					set.pertanyaan.push(angular.copy(aspek));
 				}
 			});
-			$scope.datas.layanan = $scope.datas.layanan.filter(x => x.pertanyaan.length > 0)
 			// set.pertanyaan = data;
 		});
+		$scope.datas.layanan = $scope.datas.layanan.filter(x => x.pertanyaan.length > 0)
 		// $scope.datas.layanan.forEach((element) => {
 		// 	element.pertanyaan.forEach((itempertanyaan) => {
 		// 		if (!itempertanyaan.dataaspek) {
