@@ -153,7 +153,6 @@ function PertanyaanController($scope, helperServices, PertanyaanService) {
 			swal('Information', x.message, 'info');
 		} else {
 			$scope.datas = x;
-
 			$scope.showData();
 			var today = new Date();
 			var date = today.getFullYear() + '-0' + (today.getMonth() + 1) + '-' + today.getDate();
