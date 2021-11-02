@@ -613,11 +613,9 @@ function LaporanController($scope, HomeServices) {
 					totalnilai +=
 						$scope.datas.nilaikepuasan.filter(
 							(x) => x.id_grup === pertanyaan.id_grup && x.id_range === nilai.id_range
-						).length /
-						parseFloat($scope.datas.penilai) *
-						100;
+						).length;
 				});
-				itemdata.data.push(angular.copy(totalnilai / valueaspek.length));
+				itemdata.data.push(angular.copy(totalnilai / (parseFloat($scope.datas.penilai) * valueaspek.length) * 100));
 			}
 			// forEach((valueaspek) => {});
 			ceklebel = false;
@@ -626,7 +624,7 @@ function LaporanController($scope, HomeServices) {
 		});
 		$datasets = angular.copy(set);
 		for (let index = 0; index <= $datasets.length - 1; index++) {
-			set[index].label = $datasets[($datasets.length - 1) - index].label;
+			set[index].label = $datasets[index].label;
 		}
 		console.log(set);
 		$scope.grafik(labels, set, value);
