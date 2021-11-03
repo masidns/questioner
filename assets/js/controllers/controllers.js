@@ -624,7 +624,7 @@ function LaporanController($scope, HomeServices) {
 		});
 		$datasets = angular.copy(set);
 		for (let index = 0; index <= $datasets.length - 1; index++) {
-			set[index].label = $datasets[$datasets.length - (1+index)].label;
+			set[index].label = $datasets[index].label;
 		}
 		console.log(set);
 		$scope.grafik(labels, set, value);
@@ -688,7 +688,7 @@ function LaporanController($scope, HomeServices) {
 		}
 		for (let index = 0; index < dataset.length; index++) {
 			for (let index1 = 0; index1 < dataset[index].data.length; index1++) {
-				$scope.dataPrint[index1].data.push(dataset[index].data[index1]);
+				$scope.dataPrint[index1].data.push(dataset[$datasets.length - (1 + index)].data[index1]);
 			}
 		}
 	};
