@@ -624,7 +624,7 @@ function LaporanController($scope, HomeServices) {
 		});
 		$datasets = angular.copy(set);
 		for (let index = 0; index <= $datasets.length - 1; index++) {
-			set[index].label = $datasets[index].label;
+			set[index].label = $datasets[$datasets.length - (1+index)].label;
 		}
 		console.log(set);
 		$scope.grafik(labels, set, value);
