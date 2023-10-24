@@ -18,7 +18,7 @@ class Laporan_model extends CI_Model
         $user = $this->session->userdata('IdUser');
         $setgroup = $this->db->get_where('setgroup', ['id_periode' => $id_periode])->result()[0];
         $penilai = $this->db->get_where("daftar_penilai", ['id_mhs' => $user, 'id_periode' => $id_periode])->result();
-        $group = $this->db->get_where('grup_kuisioner', ['idsetgroup' => $setgroup->idsetgroup])->result();
+        $group = $this->db->get_where('grup_kuisioner', ['idsetgroup' => $setgroup['idsetgroup']])->result();
         $aspek = $this->Aspek_penilaian_model->get_all_aspek_penilaian();
         foreach ($aspek as $key => $value) {
             $setdata = $this->db->query("SELECT
