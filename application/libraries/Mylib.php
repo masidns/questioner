@@ -36,11 +36,11 @@ class Mylib
             return "cURL Error #:" . $err;
         } else {
             if ($response->status) {
-                $response->data->role = $this->getrole($response->data->RoleUser->Role);
+                // $response->data->role = $this->getrole($response->data->RoleUser->Role);
                 $data = json_decode(json_encode($response->data), true);
-                unset($data['RoleUser']);
-                // $this->session->set_userdata($data);
-                return $data;
+                var_dump($data);
+                // unset($data['RoleUser']);
+                // return $data;
             } else {
                 return $response;
             }
