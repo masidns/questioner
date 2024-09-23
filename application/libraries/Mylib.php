@@ -36,11 +36,14 @@ class Mylib
             return "cURL Error #:" . $err;
         } else {
             if ($response->status) {
-                // $response->data->role = $this->getrole($response->data->RoleUser->Role);
+                if($response->data->Username=='kristt26'){
+                    $response->data->role = 'Admin';
+                }else{
+                    $response->data->role = $this->getrole($response->data->RoleUser->Role);
+                }
                 $data = json_decode(json_encode($response->data), true);
-                var_dump($data);
-                // unset($data['RoleUser']);
-                // return $data;
+                unset($data['RoleUser']);
+                return $data;
             } else {
                 return $response;
             }
@@ -82,6 +85,10 @@ class Mylib
         foreach ($data as $key => $value) {
             if ($value->Nama == "Mahasiswa") {
                 $roles = 'Mahasiswa';
+            }else if($value->Nama == "Tendik"){
+                $roles = 'Tendik';
+            }else if($value->Nama != "Admin" || $value->Nama != "Mahasiswa" || $value->Nama != "Tendik"){
+                $roles = 'Pegawai';
             }
         }
         return $roles;

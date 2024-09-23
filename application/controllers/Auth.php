@@ -30,12 +30,12 @@ class Auth extends CI_Controller
     {
         $result = $this->mylib->restlogin($this->input->post('username'), $this->input->post('password'));
         $data = (object) $result;
-        var_dump($result);
+        // var_dump($result);
         if(isset($data->IdUser)){
             $result['isLogin'] = true;
-            // if($result['Username']!='kristt26'){
-            //     $result['role'] = 'role';
-            // }
+            if($result['Username']!='kristt26'){
+                $result['role'] = 'role';
+            }
             $this->session->set_userdata($result);
             if ($this->session->userdata('role') == "Admin") {
                 redirect('dashboard/index');
