@@ -15,7 +15,7 @@ class Mylib
     {
         $curl = curl_init();
         curl_setopt_array($curl, array(
-            CURLOPT_URL => "https://restsimak.stimiksepnop.ac.id/api/users/login",
+            CURLOPT_URL => "https://restsimak.usn-papua.ac.id/api/users/login",
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => "",
             CURLOPT_MAXREDIRS => 10,
@@ -52,7 +52,7 @@ class Mylib
     {
         $curl = curl_init();
         curl_setopt_array($curl, array(
-            CURLOPT_URL => "https://restsimak.stimiksepnop.ac.id/api/" . $url,
+            CURLOPT_URL => "https://restsimak.usn-papua.ac.id/api/" . $url,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => "",
             CURLOPT_MAXREDIRS => 10,
